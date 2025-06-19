@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/ui/shared/service/service.dart';
 
 /// Handles HTTP requests to the API.
 ///

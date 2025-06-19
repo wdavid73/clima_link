@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter_kit/app/dependency_injection.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/widgets/widgets.dart';
+import 'package:clima_link/app/dependency_injection.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/data/data.dart';
+import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/widgets/widgets.dart';
 
 class ExampleServiceScreen extends StatelessWidget {
   const ExampleServiceScreen({super.key});

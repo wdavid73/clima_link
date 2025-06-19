@@ -1,6 +1,6 @@
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/domain/datasources/products_datasource.dart';
-import 'package:flutter_starter_kit/domain/repositories/products_repository.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/domain/datasources/products_datasource.dart';
+import 'package:clima_link/domain/repositories/products_repository.dart';
 
 /// Concrete implementation of [ProductsRepository].
 ///

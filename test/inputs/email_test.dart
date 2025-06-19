@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_starter_kit/ui/shared/inputs/inputs.dart';
+import 'package:clima_link/ui/shared/inputs/inputs.dart';
 
 void main() {
   group("Email", () {

@@ -1,5 +1,5 @@
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/domain/repositories/products_repository.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/domain/repositories/products_repository.dart';
 
 /// Handles product-related use cases.
 ///

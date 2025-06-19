@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
+import 'package:clima_link/ui/shared/service/service.dart';
 
 /// Interceptor for adding and managing API tokens.
 ///

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter_kit/api/api.dart';
+import 'package:clima_link/api/api.dart';
 
 /// Interceptor for handling API errors.
 ///

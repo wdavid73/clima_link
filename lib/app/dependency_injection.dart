@@ -1,10 +1,10 @@
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/domain/repositories/repositories.dart';
-import 'package:flutter_starter_kit/domain/usecases/usecases.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/data/data.dart';
+import 'package:clima_link/domain/repositories/repositories.dart';
+import 'package:clima_link/domain/usecases/usecases.dart';
+import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
+import 'package:clima_link/ui/shared/service/service.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;

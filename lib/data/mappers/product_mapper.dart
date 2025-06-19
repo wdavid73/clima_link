@@ -1,5 +1,5 @@
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/data/data.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/data/data.dart';
 
 /// Maps JSON data to a [Product] entity.
 ///

@@ -9,13 +9,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/screens/screens.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/ui/shared/inputs/inputs.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
+import 'package:clima_link/ui/screens/screens.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/data/data.dart';
+import 'package:clima_link/ui/shared/inputs/inputs.dart';
 
 import './mocks/auth_flow_dependencies.dart';
 

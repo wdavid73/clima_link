@@ -1,5 +1,5 @@
-import 'package:flutter_starter_kit/domain/entities/user.dart';
-import 'package:flutter_starter_kit/data/data.dart';
+import 'package:clima_link/domain/entities/user.dart';
+import 'package:clima_link/data/data.dart';
 import 'json_serializable.dart';
 
 /// A concrete implementation of the [User] entity that can be serialized to JSON.

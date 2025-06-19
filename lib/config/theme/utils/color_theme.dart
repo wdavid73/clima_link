@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 
 class ColorTheme {
   // Color to text
-  static Color textPrimary = HexColor.fromHex("#212121");
-  static Color textSecondary = HexColor.fromHex("#757575");
-  static Color iconsColor = HexColor.fromHex("#FFFFFF");
+  static Color textPrimary = HexColor.fromHex("#000000");
+  static Color textSecondary = HexColor.fromHex("#8E8E93");
+  static Color iconsColor = HexColor.fromHex("#3A3A3C");
 
-  // Color of theme
-  static Color primaryColor = HexColor.fromHex("#3F51B5");
-  static Color lightPrimaryColor = HexColor.fromHex("#C5CAE9");
-  static Color secondaryColor = HexColor.fromHex("#303F9F");
-  static Color accentColor = HexColor.fromHex("#00BCD4");
+// Color of theme
+  static Color primaryColor = HexColor.fromHex("#007AFF");
+  static Color lightPrimaryColor = HexColor.fromHex("#5AC8FA");
+static Color secondaryColor = HexColor.fromHex("#34C759");
+  static Color accentColor = HexColor.fromHex("#FFD60A");
 
   // Backgrounds of theme
-  static Color backgroundColor = HexColor.fromHex("#FFFFFF");
-  static Color backgroundColorDark = HexColor.fromHex("#272727");
-  static Color backgroundLight = HexColor.fromHex("#f4f4f4");
-  static Color navigationBackgroundColorDark = HexColor.fromHex("#272b36");
-  static Color navigationBackgroundColorLight = HexColor.fromHex("#E8EAF6");
+  static Color backgroundColor = HexColor.fromHex("#F2F2F7");
+  static Color backgroundColorDark = HexColor.fromHex("#1C1C1E");
+  static Color backgroundLight = HexColor.fromHex("#E5E5EA");
+  static Color navigationBackgroundColorDark = HexColor.fromHex("#000000");
+  static Color navigationBackgroundColorLight = HexColor.fromHex("#FFFFFF");
 
   // Utils
   static Color error = HexColor.fromHex("#EF5350");

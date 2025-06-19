@@ -1,4 +1,4 @@
-import 'package:flutter_starter_kit/domain/entities/product.dart';
+import 'package:clima_link/domain/entities/product.dart';
 
 /// A concrete implementation of the [Product] entity.
 ///

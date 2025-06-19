@@ -1,6 +1,6 @@
 # 🏗️ Proyecto Base de Flutter
 
-[![en](https://img.shields.io/badge/lang-en-yellow.svg)](https://github.com/wdavid73/flutter_starter_kit/blob/master/README.md)
+[![en](https://img.shields.io/badge/lang-en-yellow.svg)](https://github.com/wdavid73/clima_link/blob/master/README.md)
 
 Este es un proyecto base en Flutter diseñado como una plantilla para desarrollos futuros. Contiene configuraciones y paquetes esenciales para comenzar nuevos proyectos rápidamente.
 

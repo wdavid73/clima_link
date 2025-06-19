@@ -1,6 +1,6 @@
 # 🏗️ Flutter Base Project
 
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/wdavid73/flutter_starter_kit/blob/master/README.es.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/wdavid73/clima_link/blob/master/README.es.md)
 
 This is a base project in Flutter designed as a template for future developments. It contains essential configurations and packages to quickly start new projects.
 
@@ -262,9 +262,9 @@ This project supports **flavors** for managing multiple environments: `dev`, `st
   main_prod.dart
 
 /flavors/
-  dev.env
-  staging.env
-  prod.env
+  .env.dev
+  .env.staging
+  .env.prod
 
 /android/app/build.gradle
   # Contains productFlavors configuration
@@ -274,7 +274,7 @@ This project supports **flavors** for managing multiple environments: `dev`, `st
 
 Located in `/flavors/`, each `.env` file defines environment-specific variables. Example
 
-`flavors/dev.env:`
+`flavors/.env.dev:`
 
 ```
 API_URL=https://api.dev.example.com

@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_starter_kit/api/api.dart';
-import 'package:flutter_starter_kit/data/data.dart';
-import 'package:flutter_starter_kit/domain/usecases/products_usecase.dart';
+import 'package:clima_link/api/api.dart';
+import 'package:clima_link/data/data.dart';
+import 'package:clima_link/domain/usecases/products_usecase.dart';
 
 part 'products_bloc_handler.dart';
 part 'products_event.dart';

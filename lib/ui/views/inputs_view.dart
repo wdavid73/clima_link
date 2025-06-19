@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/shared/service/service.dart';
-import 'package:flutter_starter_kit/ui/widgets/widgets.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/ui/shared/service/service.dart';
+import 'package:clima_link/ui/widgets/widgets.dart';
 
 class InputsWidget extends StatefulWidget {
   const InputsWidget({super.key});

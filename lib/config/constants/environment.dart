@@ -5,7 +5,7 @@ class Environment {
 
   static Future<void> initEnvironment({required String flavor}) async {
     _flavor = flavor;
-    await dotenv.load(fileName: "flavors/$flavor.env");
+    await dotenv.load(fileName: "flavors/.env.$flavor");
   }
 
   static String get flavor => _flavor;

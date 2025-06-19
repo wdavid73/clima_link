@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/views/views.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/ui/views/views.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

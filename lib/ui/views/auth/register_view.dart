@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
-import 'package:flutter_starter_kit/ui/shared/shared.dart';
-import 'package:flutter_starter_kit/ui/widgets/shared/logo_container.dart';
+import 'package:clima_link/config/config.dart';
+import 'package:clima_link/ui/shared/shared.dart';
+import 'package:clima_link/ui/widgets/shared/logo_container.dart';
 import 'package:go_router/go_router.dart';
 
 import './widgets/form_sign_up.dart';

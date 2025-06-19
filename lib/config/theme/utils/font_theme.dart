@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter_kit/config/config.dart';
+import 'package:clima_link/config/config.dart';
 
 class AppTypography {
   // Font Family

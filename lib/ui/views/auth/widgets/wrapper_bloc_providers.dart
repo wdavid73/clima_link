@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter_kit/app/dependency_injection.dart';
-import 'package:flutter_starter_kit/ui/blocs/blocs.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
+import 'package:clima_link/app/dependency_injection.dart';
+import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
 
 class WrapperBlocProvidersAuth extends StatelessWidget {
   final Widget child;

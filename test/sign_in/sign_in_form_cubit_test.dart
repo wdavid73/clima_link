@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_starter_kit/ui/blocs/auth/auth_bloc.dart';
-import 'package:flutter_starter_kit/ui/cubits/cubits.dart';
-import 'package:flutter_starter_kit/ui/shared/inputs/inputs.dart';
+import 'package:clima_link/ui/blocs/auth/auth_bloc.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
+import 'package:clima_link/ui/shared/inputs/inputs.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks/mock_sign_in_dependencies.dart';
