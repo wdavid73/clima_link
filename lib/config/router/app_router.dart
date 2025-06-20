@@ -44,13 +44,11 @@ GoRouter createAppRouter(AuthBloc authBloc) {
   final goRouterNotifier = GoRouterNotifier(authBloc);
 
   return GoRouter(
-    initialLocation: Environment.showOnboarding
-        ? RouteConstants.onboardingScreen
-        : RouteConstants.splash,
+    initialLocation: RouteConstants.home,
     refreshListenable: goRouterNotifier,
     routes: AppRoutes.getAppRoutes(),
     redirect: (context, state) {
-      final onboardingRedirect = _handleOnboardingRedirect(context, state);
+      /* final onboardingRedirect = _handleOnboardingRedirect(context, state);
 
       if (onboardingRedirect != null) {
         return onboardingRedirect;
@@ -63,7 +61,8 @@ GoRouter createAppRouter(AuthBloc authBloc) {
         goRouterNotifier,
         state,
         Environment.showOnboarding == true ? isOnboardingCompleted : true,
-      );
+      ); */
+      return null;
     },
   );
 }
