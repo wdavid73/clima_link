@@ -16,6 +16,7 @@ dependencies:
   animate_do: ^4.2.0
   dio: ^5.8.0+1
   equatable: ^2.0.7
+  fluentui_system_icons: ^1.1.273
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
@@ -34,6 +35,7 @@ dependencies:
   image_picker: ^1.1.2
   intl: any
   introduction_screen: ^3.1.17
+  lottie: ^3.3.1
   path_provider: ^2.1.5
   shared_preferences: ^2.5.1
   shimmer: ^3.0.0
@@ -68,15 +70,16 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/images/introduction/
+    - assets/lotties/
 
   fonts:
     - family: MontserratAlternates
       fonts:
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Light.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Regular.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Medium.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-SemiBold.ttf
-        - asset: assets/fonts/montserrat_alternates/MontserratAlternates-Bold.ttf
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-Light.ttf
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-Regular.ttf
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-Medium.ttf
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-SemiBold.ttf
+        - asset: assets/fonts/space_grotesk/SpaceGrotesk-Bold.ttf
 
 flutter_native_splash:
   color: "#007AFF"

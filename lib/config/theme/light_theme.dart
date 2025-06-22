@@ -42,14 +42,14 @@ class LightTheme {
       ),
       textTheme: baseTextTheme.apply(fontSizeFactor: textScaleFactor),
       appBarTheme: _baseAppBarTheme.copyWith(
-        backgroundColor: ColorTheme.white,
+        backgroundColor: ColorTheme.navigationBackgroundColorLight,
         surfaceTintColor: ColorTheme.primaryColor,
         iconTheme: baseIconTheme.copyWith(
           color: ColorTheme.secondaryColor,
         ),
       ),
       cardTheme: _baseCardTheme.copyWith(
-        color: ColorTheme.backgroundColor,
+        color: ColorTheme.navigationBackgroundColorLight,
       ),
       dividerTheme: _baseDividerTheme,
       chipTheme: _baseChipTheme.copyWith(

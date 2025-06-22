@@ -60,9 +60,14 @@ class CustomDropdownFormField extends StatelessWidget {
         iconDisabledColor: iconDisabledColor,
         iconEnabledColor: ColorTheme.primaryColor,
         focusNode: focusNode,
-        isExpanded: true,
+        isExpanded: false,
         onChanged: onChanged,
         validator: validator,
+        dropdownColor: Theme.of(context).brightness == Brightness.light
+            ? ColorTheme.navigationBackgroundColorLight
+            : ColorTheme.backgroundColorDark,
+        style: context.textTheme.bodyMedium,
+        borderRadius: BorderRadius.circular(16),
       ),
     );
   }

@@ -4,12 +4,12 @@ import 'package:clima_link/config/theme/theme.dart';
 import 'text_theme.dart';
 
 final _baseBorderSideInput = BorderSide(
-  color: ColorTheme.backgroundColorDark,
-  width: 1.5,
+  color: Colors.transparent,
+  width: 0.0,
 );
 final _baseOutlineInputBorder = OutlineInputBorder(
   borderSide: _baseBorderSideInput,
-  borderRadius: BorderRadius.circular(12),
+  borderRadius: BorderRadius.circular(24),
 );
 
 /// Base InputDecorationTheme. Used as a starting point for customizing the input decoration styles in light.
@@ -41,6 +41,8 @@ InputDecorationTheme getBaseInputDecorationTheme(
       suffixIconColor: ColorTheme.secondaryColor,
       prefixIconColor: ColorTheme.secondaryColor,
       enabledBorder: _baseOutlineInputBorder,
+      filled: true,
+      fillColor: ColorTheme.navigationBackgroundColorLight,
       disabledBorder: _baseOutlineInputBorder.copyWith(
         borderSide: _baseBorderSideInput.copyWith(
           color: ColorTheme.disable,
@@ -48,7 +50,7 @@ InputDecorationTheme getBaseInputDecorationTheme(
       ),
       focusedBorder: _baseOutlineInputBorder.copyWith(
         borderSide: _baseBorderSideInput.copyWith(
-          color: ColorTheme.secondaryColor,
+          color: ColorTheme.backgroundLight,
         ),
       ),
       errorBorder: _baseOutlineInputBorder.copyWith(
@@ -85,14 +87,18 @@ InputDecorationTheme getBaseInputDecorationDarkTheme(
       suffixIconColor: ColorTheme.lightPrimaryColor,
       prefixIconColor: ColorTheme.white,
       contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+      filled: true,
+      fillColor: ColorTheme.backgroundColorDark,
       enabledBorder: _baseOutlineInputBorder.copyWith(
         borderSide: _baseBorderSideInput.copyWith(
-          color: ColorTheme.lightPrimaryColor,
+          color: ColorTheme.iconsColor,
+          width: 1.5,
         ),
       ),
       focusedBorder: _baseOutlineInputBorder.copyWith(
         borderSide: _baseBorderSideInput.copyWith(
-          color: ColorTheme.white,
+          color: ColorTheme.iconsColor,
+          width: 1.5,
         ),
       ),
       errorStyle: fontSizeFactor != null

@@ -116,16 +116,12 @@ class DarkTheme {
         color: ColorTheme.lightPrimaryColor,
         size: context.dp(1.8),
       ),
-      appBarTheme: _baseAppBarTheme,
+      appBarTheme: _baseAppBarTheme.copyWith(
+        backgroundColor: ColorTheme.backgroundColorDark,
+      ),
       cardTheme: _baseCardTheme.copyWith(
         color: ColorTheme.backgroundColorDark,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
-            color: ColorTheme.white,
-            width: 2,
-          ),
-        ),
+        surfaceTintColor: ColorTheme.lightPrimaryColor,
       ),
       dividerTheme: _baseDividerTheme,
       chipTheme: _baseChipTheme.copyWith(

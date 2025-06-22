@@ -166,10 +166,9 @@ class ThemeConstants {
   /// light and dark themes. It sets common properties like title centering,
   /// elevation, and default icon/text styles.
   static final baseAppBarDarkTheme = AppBarTheme(
-    backgroundColor: darkColorScheme.primary,
-    titleTextStyle: baseTextThemeDark.titleMedium,
     centerTitle: false,
     elevation: 0,
+    titleTextStyle: baseTextThemeDark.titleMedium,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(16),
     ),
@@ -218,12 +217,12 @@ class ThemeConstants {
   /// light and dark themes. It sets a default elevation, a rounded
   /// rectangle shape with a border.
   static final baseCardTheme = CardThemeData(
-    elevation: 0,
+    elevation: 5,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(26),
       side: BorderSide(
-        color: ColorTheme.textPrimary,
-        width: 2,
+        color: Colors.transparent,
+        width: 0,
       ),
     ),
   );
