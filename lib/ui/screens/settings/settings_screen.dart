@@ -28,8 +28,6 @@ class SettingsScreen extends StatelessWidget {
           child: ListView(
             children: [
               Text(
-                  "Units ${cubit.state.temperatureUnit}, ${cubit.state.windSpeedUnit}"),
-              Text(
                 context.l10n.general,
                 style: context.textTheme.titleMedium,
               ),
