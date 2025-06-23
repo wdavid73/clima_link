@@ -3,11 +3,38 @@ import 'package:clima_link/ui/shared/styles/app_spacing.dart';
 import 'package:clima_link/ui/widgets/custom_dropdown_form_field.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:weatherapi/weatherapi.dart';
 
 import './temperature_range_bar.dart';
 
 class WeatherForecast extends StatelessWidget {
-  const WeatherForecast({super.key});
+  final List<ForecastDayData> forecast;
+  const WeatherForecast({super.key, required this.forecast});
+
+  String _mapConditionToKey(String condition) {
+    if (condition.contains('thunder')) return 'thunderstorm';
+    if (condition.contains('snow') || condition.contains('blizzard')) {
+      return 'snow';
+    }
+    if (condition.contains('rain') ||
+        condition.contains('drizzle') ||
+        condition.contains('shower')) {
+      return 'rain';
+    }
+    if (condition.contains('fog') ||
+        condition.contains('mist') ||
+        condition.contains('haze')) {
+      return 'fog';
+    }
+    if (condition.contains('cloud') || condition.contains('overcast')) {
+      return 'cloudy';
+    }
+    if (condition.contains('wind') || condition.contains('squall')) {
+      return 'wind';
+    }
+    return 'clear_day';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,62 +59,24 @@ class WeatherForecast extends StatelessWidget {
                     ],
                   ),
                   AppSpacing.md,
-                  _ForecastItem(
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                    day: "Today",
-                    weather: "clear_day",
-                  ),
-                  _ForecastItem(
-                    day: "Sun",
-                    weather: "rain",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Mon",
-                    weather: "thunderstorm",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Tue",
-                    weather: "cloudy",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Wed",
-                    weather: "showers",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Thu",
-                    weather: "snow",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Fri",
-                    weather: "fog",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
-                  _ForecastItem(
-                    day: "Sat",
-                    weather: "wind",
-                    currentTemp: 25,
-                    minTemp: 23,
-                    maxTemp: 35,
-                  ),
+                  ...forecast.asMap().entries.map((entry) {
+                    final index = entry.key;
+                    final day = entry.value;
+
+                    final date = DateTime.parse(day.date!);
+                    final label =
+                        index == 0 ? "Today" : DateFormat.E().format(date);
+                    final condition = day.day.condition.text!.toLowerCase();
+                    final mappedIcon = _mapConditionToKey(condition);
+
+                    return _ForecastItem(
+                      day: label,
+                      minTemp: day.day.mintempC!,
+                      maxTemp: day.day.maxtempC!,
+                      currentTemp: day.day.avgtempC!,
+                      weather: mappedIcon,
+                    );
+                  }),
                 ],
               ),
             ),

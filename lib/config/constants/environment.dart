@@ -12,4 +12,5 @@ class Environment {
   static String get apiUrl => dotenv.env['API_URL'] ?? '';
   static bool get showOnboarding => dotenv.env['SHOW_ONBOARDING'] == 'true';
   static String get appName => "My App";
+  static String get weatherApiKey => dotenv.env['WEATHER_API_KEY'] ?? '';
 }

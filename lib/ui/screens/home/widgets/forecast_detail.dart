@@ -1,9 +1,14 @@
 import 'package:clima_link/config/config.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:weatherapi/weatherapi.dart';
 
 class ForecastDetail extends StatelessWidget {
-  const ForecastDetail({super.key});
+  final CurrentWeatherData currentWeatherData;
+  final DayData dayData;
+
+  const ForecastDetail(
+      {super.key, required this.currentWeatherData, required this.dayData});
 
   @override
   Widget build(BuildContext context) {
@@ -11,32 +16,52 @@ class ForecastDetail extends StatelessWidget {
       _WeatherDetail(
         icon: FluentIcons.weather_squalls_24_filled,
         label: 'Wind',
-        value: '10 km/h',
+        value: '${currentWeatherData.windKph} km/h',
       ),
       _WeatherDetail(
         icon: FluentIcons.weather_cloudy_24_filled,
         label: 'Humidity',
-        value: '70%',
+        value: '${currentWeatherData.humidity}%',
       ),
       _WeatherDetail(
         icon: FluentIcons.temperature_24_filled,
         label: 'Thermal sensation',
-        value: '20°',
+        value: '${currentWeatherData.feelslikeC}°',
       ),
       _WeatherDetail(
         icon: FluentIcons.temperature_24_filled,
         label: 'Minimum temperature',
-        value: '18°',
+        value: '${dayData.mintempC}°',
       ),
       _WeatherDetail(
         icon: FluentIcons.temperature_24_filled,
         label: 'Maximum temperature',
-        value: '26°',
+        value: '${dayData.maxtempC}°',
       ),
       _WeatherDetail(
         icon: FluentIcons.weather_rain_showers_day_24_filled,
         label: 'Precipitation',
-        value: '10%',
+        value: '${currentWeatherData.precipMm}%',
+      ),
+      _WeatherDetail(
+        icon: FluentIcons.data_sunburst_24_filled,
+        label: 'UV Index',
+        value: '${dayData.uv}',
+      ),
+      _WeatherDetail(
+        icon: FluentIcons.eye_tracking_24_filled,
+        label: 'Visibility',
+        value: '${currentWeatherData.visKm} Km',
+      ),
+      _WeatherDetail(
+        icon: FluentIcons.weather_rain_showers_day_24_filled,
+        label: 'Daily change of rain',
+        value: '${dayData.dailyChanceOfRain}%',
+      ),
+      _WeatherDetail(
+        icon: FluentIcons.calendar_24_filled,
+        label: 'Last update',
+        value: '${currentWeatherData.lastUpdated}',
       ),
     ];
 
