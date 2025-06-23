@@ -28,6 +28,7 @@ class LightTheme {
   static final _baseNavigationDrawer = ThemeConstants.baseNavigationDrawer;
   static final _baseIconTheme = ThemeConstants.baseIconTheme;
   static final _basePopupMenuThemeData = ThemeConstants.basePopupMenuThemeData;
+  static final _baseTooltipThemeData = ThemeConstants.baseTooltipThemeData;
 
   static ThemeData getLightTheme(BuildContext context) {
     final textScaleFactor = context.tsf.scale(ThemeConstants.fontSizeFactor);
@@ -99,6 +100,7 @@ class LightTheme {
       popupMenuTheme: _basePopupMenuThemeData.copyWith(
         iconSize: context.dp(3),
       ),
+      tooltipTheme: _baseTooltipThemeData,
     );
   }
 }

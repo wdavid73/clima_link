@@ -7,7 +7,6 @@ import 'package:clima_link/domain/repositories/repositories.dart';
 import 'package:clima_link/domain/usecases/usecases.dart';
 import 'package:clima_link/domain/usecases/weather_usecase.dart';
 import 'package:clima_link/ui/blocs/blocs.dart';
-import 'package:clima_link/ui/blocs/weather/weather_bloc.dart';
 import 'package:clima_link/ui/cubits/cubits.dart';
 import 'package:clima_link/ui/shared/service/service.dart';
 import 'package:get_it/get_it.dart';
@@ -48,6 +47,7 @@ class AppDependencyInjection {
     ///  Cubits and BLoCs
 
     // Singleton
+    getIt.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
     getIt.registerLazySingleton<ThemeModeCubit>(() => ThemeModeCubit());
 
     getIt.registerLazySingleton<IntroductionCubit>(

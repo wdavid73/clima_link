@@ -1,11 +1,13 @@
 import 'package:clima_link/config/helpers/lottie_helper.dart';
 import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/cubits/settings_cubit/settings_cubit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:clima_link/config/config.dart';
 import 'package:clima_link/ui/shared/shared.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import './forecast_detail.dart';
@@ -62,6 +64,26 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
     }
   }
 
+  double _calculateTitleProgress(
+    double availableHeight,
+    double expandedHeight,
+  ) {
+    final collapsedThreshold = 0.45;
+    final titleProgress =
+        ((1.0 - (availableHeight / expandedHeight)) - collapsedThreshold) /
+            (1.0 - collapsedThreshold);
+    return titleProgress;
+  }
+
+  double _calculateBackgroundProgress(
+    double availableHeight,
+    double expandedHeight,
+  ) {
+    final backgroundProgress =
+        (1.0 - (availableHeight / expandedHeight)).clamp(0.0, 1.0);
+    return backgroundProgress;
+  }
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -72,6 +94,7 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final settingsCubit = context.watch<SettingsCubit>().state;
     return BlocBuilder<WeatherBloc, WeatherState>(
       builder: (context, state) {
         if (state.isLoading) {
@@ -100,25 +123,31 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
           slivers: [
             SliverLayoutBuilder(
               builder: (context, constraints) {
-                final expandedHeight = context.hp(95);
+                final expandedHeight = context.hp(99);
                 final offset =
                     constraints.scrollOffset.clamp(0.0, expandedHeight);
                 final availableHeight = expandedHeight - offset;
 
-                final backgroundProgress =
-                    (1.0 - (availableHeight / expandedHeight)).clamp(0.0, 1.0);
+                final backgroundProgress = _calculateBackgroundProgress(
+                  availableHeight,
+                  expandedHeight,
+                );
                 _backgroundAnimationController.value = backgroundProgress;
 
-                final collapsedThreshold = 0.45;
-                final titleProgress =
-                    ((1.0 - (availableHeight / expandedHeight)) -
-                            collapsedThreshold) /
-                        (1.0 - collapsedThreshold);
+                final titleProgress = _calculateTitleProgress(
+                  availableHeight,
+                  expandedHeight,
+                );
                 _titleAnimationController.value = titleProgress.clamp(0.0, 1.0);
 
                 String location =
                     "${currentWeather.location.region}, ${currentWeather.location.name!}";
-                double? temp = currentWeather.current.tempC;
+
+                String temperature =
+                    settingsCubit.temperatureUnit == TemperatureUnit.celsius
+                        ? "${currentWeather.current.tempC}°C"
+                        : "${currentWeather.current.tempF}°F";
+
                 bool isDay = currentWeather.current.isDay == 1;
                 String lottie = LottieHelper.getWeatherLottie(
                   condition: currentWeather.current.condition.text!,
@@ -127,22 +156,30 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
 
                 return SliverAppBar(
                   pinned: true,
-                  floating: true,
+                  floating: false,
                   snap: false,
                   expandedHeight: expandedHeight,
                   title: _buildAnimatedAppBarCollapsed(
                     location: location,
-                    temp: temp,
+                    temperature: temperature,
                     lottie: lottie,
                   ),
                   flexibleSpace: FlexibleSpaceBar(
                     centerTitle: true,
                     background: _buildFlexibleAppBarBackground(
                       location: location,
-                      temp: temp,
+                      temperature: temperature,
                       lottie: lottie,
                     ),
                   ),
+                  actions: [
+                    IconButton(
+                      onPressed: () => context.pushNamed('settings'),
+                      icon: Icon(
+                        FluentIcons.settings_24_filled,
+                      ),
+                    )
+                  ],
                 );
               },
             ),
@@ -166,7 +203,7 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
 
   Widget _buildAnimatedAppBarCollapsed({
     required String location,
-    double? temp,
+    required String temperature,
     String lottie = 'assets/lotties/sunny.json',
   }) {
     return AnimatedBuilder(
@@ -186,25 +223,17 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
                     children: [
                       Lottie.asset(
                         lottie,
-                        width: context.dp(4),
-                        height: context.dp(4),
+                        width: context.dp(3.5),
+                        height: context.dp(3.5),
                       ),
-                      AppSpacing.lg,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 10,
-                        children: [
-                          Text(
-                            location,
-                            style: context.textTheme.titleMedium,
-                          ),
-                          Icon(FluentIcons.my_location_24_filled)
-                        ],
-                      ),
-                      AppSpacing.lg,
+                      AppSpacing.md,
                       Text(
-                        "$temp°C",
+                        location,
+                        style: context.textTheme.titleMedium,
+                      ),
+                      AppSpacing.sm,
+                      Text(
+                        temperature,
                         style: context.textTheme.titleMedium,
                       ),
                     ],
@@ -218,7 +247,7 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
 
   Widget _buildFlexibleAppBarBackground({
     required String location,
-    double? temp,
+    required String temperature,
     String lottie = 'assets/lotties/sunny.json',
   }) {
     final curved = CurvedAnimation(
@@ -266,7 +295,7 @@ class _HomeBodyState extends State<HomeBody> with TickerProviderStateMixin {
                   ),
                   AppSpacing.lg,
                   Text(
-                    "$temp°C",
+                    temperature,
                     style: context.textTheme.titleMedium,
                   ),
                 ],

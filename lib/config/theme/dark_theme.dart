@@ -77,6 +77,8 @@ class DarkTheme {
   /// The base popup menu theme data for the dark theme.
   static final _basePopupMenuThemeData = ThemeConstants.basePopupMenuThemeData;
 
+  static final _baseTooltipThemeData = ThemeConstants.baseTooltipDarkThemeData;
+
   /// Resolver for color status, typically used for interactive widget states.
   static final _resolveColorStatusWith = ThemeConstants.resolveColorStatusWith;
 
@@ -222,6 +224,7 @@ class DarkTheme {
       popupMenuTheme: _basePopupMenuThemeData.copyWith(
         iconSize: context.dp(3),
       ),
+      tooltipTheme: _baseTooltipThemeData,
     );
   }
 }

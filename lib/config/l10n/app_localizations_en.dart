@@ -438,4 +438,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tryAgain => 'Try again';
+
+  @override
+  String get moreDetails => 'More details';
+
+  @override
+  String get wind => 'Wind';
+
+  @override
+  String get humidity => 'Humidity';
+
+  @override
+  String get thermalSensation => 'Thermal sensation';
+
+  @override
+  String get minimumTemperature => 'Minimum temperature';
+
+  @override
+  String get maximumTemperature => 'Maximum temperature';
+
+  @override
+  String get precipitation => 'Precipitation';
+
+  @override
+  String get uvIndex => 'UV Index';
+
+  @override
+  String get visibility => 'Visibility';
+
+  @override
+  String get dailyChangeOfRain => 'Daily change of rain';
+
+  @override
+  String get lastUpdate => 'Last update';
+
+  @override
+  String get tenDayForecast => '10-Day Forecast';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get currentLanguage => 'Current language';
+
+  @override
+  String get currentTemperature => 'Current temperature';
+
+  @override
+  String get temperatureUnit => 'Temperature unit';
+
+  @override
+  String get windSpeedUnit => 'Wind speed unit';
+
+  @override
+  String get chooseTemperatureUnit => 'Choose your preferred temperature unit';
+
+  @override
+  String get chooseWindUnit => 'Choose your preferred wind speed unit';
+
+  @override
+  String get dayForecast => 'Day Forecast';
+
+  @override
+  String get daysForecast => 'Days Forecast';
 }

@@ -901,6 +901,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try again'**
   String get tryAgain;
+
+  /// No description provided for @moreDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'More details'**
+  String get moreDetails;
+
+  /// No description provided for @wind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get wind;
+
+  /// No description provided for @humidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get humidity;
+
+  /// No description provided for @thermalSensation.
+  ///
+  /// In en, this message translates to:
+  /// **'Thermal sensation'**
+  String get thermalSensation;
+
+  /// No description provided for @minimumTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum temperature'**
+  String get minimumTemperature;
+
+  /// No description provided for @maximumTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum temperature'**
+  String get maximumTemperature;
+
+  /// No description provided for @precipitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Precipitation'**
+  String get precipitation;
+
+  /// No description provided for @uvIndex.
+  ///
+  /// In en, this message translates to:
+  /// **'UV Index'**
+  String get uvIndex;
+
+  /// No description provided for @visibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get visibility;
+
+  /// No description provided for @dailyChangeOfRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily change of rain'**
+  String get dailyChangeOfRain;
+
+  /// No description provided for @lastUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Last update'**
+  String get lastUpdate;
+
+  /// No description provided for @tenDayForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'10-Day Forecast'**
+  String get tenDayForecast;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @currentLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Current language'**
+  String get currentLanguage;
+
+  /// No description provided for @currentTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Current temperature'**
+  String get currentTemperature;
+
+  /// No description provided for @temperatureUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature unit'**
+  String get temperatureUnit;
+
+  /// No description provided for @windSpeedUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind speed unit'**
+  String get windSpeedUnit;
+
+  /// No description provided for @chooseTemperatureUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred temperature unit'**
+  String get chooseTemperatureUnit;
+
+  /// No description provided for @chooseWindUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your preferred wind speed unit'**
+  String get chooseWindUnit;
+
+  /// No description provided for @dayForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Day Forecast'**
+  String get dayForecast;
+
+  /// No description provided for @daysForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Days Forecast'**
+  String get daysForecast;
 }
 
 class _AppLocalizationsDelegate

@@ -1,9 +1,13 @@
 import 'package:clima_link/config/config.dart';
+import 'package:clima_link/config/helpers/lottie_helper.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
 import 'package:clima_link/ui/shared/styles/app_spacing.dart';
 import 'package:clima_link/ui/widgets/custom_dropdown_form_field.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:weatherapi/weatherapi.dart';
 
 import './temperature_range_bar.dart';
@@ -12,32 +16,10 @@ class WeatherForecast extends StatelessWidget {
   final List<ForecastDayData> forecast;
   const WeatherForecast({super.key, required this.forecast});
 
-  String _mapConditionToKey(String condition) {
-    if (condition.contains('thunder')) return 'thunderstorm';
-    if (condition.contains('snow') || condition.contains('blizzard')) {
-      return 'snow';
-    }
-    if (condition.contains('rain') ||
-        condition.contains('drizzle') ||
-        condition.contains('shower')) {
-      return 'rain';
-    }
-    if (condition.contains('fog') ||
-        condition.contains('mist') ||
-        condition.contains('haze')) {
-      return 'fog';
-    }
-    if (condition.contains('cloud') || condition.contains('overcast')) {
-      return 'cloudy';
-    }
-    if (condition.contains('wind') || condition.contains('squall')) {
-      return 'wind';
-    }
-    return 'clear_day';
-  }
-
   @override
   Widget build(BuildContext context) {
+    final settingsCubit = context.watch<SettingsCubit>().state;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -54,8 +36,14 @@ class WeatherForecast extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     spacing: 10,
                     children: [
-                      Icon(FluentIcons.calendar_ltr_48_filled),
-                      Text("10-Day Forecast"),
+                      Icon(
+                        FluentIcons.calendar_ltr_48_filled,
+                        size: context.dp(2.5),
+                      ),
+                      Text(
+                        context.l10n.daysForecast,
+                        style: context.textTheme.bodyLarge,
+                      ),
                     ],
                   ),
                   AppSpacing.md,
@@ -64,17 +52,38 @@ class WeatherForecast extends StatelessWidget {
                     final day = entry.value;
 
                     final date = DateTime.parse(day.date!);
-                    final label =
-                        index == 0 ? "Today" : DateFormat.E().format(date);
+                    final label = index == 0
+                        ? context.l10n.today
+                        : DateFormat.E(context.currentLocale()).format(date);
                     final condition = day.day.condition.text!.toLowerCase();
-                    final mappedIcon = _mapConditionToKey(condition);
+
+                    final double minTemp =
+                        settingsCubit.temperatureUnit == TemperatureUnit.celsius
+                            ? day.day.mintempC!
+                            : day.day.mintempF!;
+
+                    final double maxTemp =
+                        settingsCubit.temperatureUnit == TemperatureUnit.celsius
+                            ? day.day.maxtempC!
+                            : day.day.maxtempF!;
+
+                    final double avgTemp =
+                        settingsCubit.temperatureUnit == TemperatureUnit.celsius
+                            ? day.day.avgtempC!
+                            : day.day.avgtempF!;
+
+                    final String unit =
+                        settingsCubit.temperatureUnit == TemperatureUnit.celsius
+                            ? '°C'
+                            : '°F';
 
                     return _ForecastItem(
                       day: label,
-                      minTemp: day.day.mintempC!,
-                      maxTemp: day.day.maxtempC!,
-                      currentTemp: day.day.avgtempC!,
-                      weather: mappedIcon,
+                      minTemp: minTemp,
+                      maxTemp: maxTemp,
+                      currentTemp: avgTemp,
+                      weather: condition,
+                      unit: unit,
                     );
                   }),
                 ],
@@ -93,40 +102,18 @@ class _ForecastItem extends StatelessWidget {
   final double maxTemp;
   final double currentTemp;
   final String weather;
+  final String unit;
   const _ForecastItem({
     required this.day,
     required this.minTemp,
     required this.maxTemp,
     required this.currentTemp,
     required this.weather,
+    this.unit = '°C',
   });
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, IconData> icons = {
-      // Clear / sunny
-      'clear_day': FluentIcons.weather_sunny_24_filled,
-      'clear_night': FluentIcons.weather_moon_24_filled,
-      // Partly cloudy
-      'partly_cloudy_day': FluentIcons.weather_partly_cloudy_day_24_filled,
-      'partly_cloudy_night': FluentIcons.weather_partly_cloudy_night_24_filled,
-      // Cloudy
-      'cloudy': FluentIcons.weather_cloudy_24_filled,
-      // Rain
-      'rain': FluentIcons.weather_rain_24_filled,
-      'showers': FluentIcons.weather_rain_showers_day_24_filled,
-      // Thunderstorm
-      'thunderstorm': FluentIcons.weather_thunderstorm_24_filled,
-      // Snow
-      'snow': FluentIcons.weather_snow_24_filled,
-      'snow_showers': FluentIcons.weather_snow_shower_day_24_filled,
-      // Fog / mist
-      'fog': FluentIcons.weather_fog_24_filled,
-      // Additional: windy, drizzle, hail
-      'wind': FluentIcons.weather_squalls_24_filled,
-      'drizzle': FluentIcons.weather_drizzle_24_filled,
-      'sleet': FluentIcons.weather_rain_snow_24_filled,
-    };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -144,9 +131,13 @@ class _ForecastItem extends StatelessWidget {
                 style: context.textTheme.labelLarge,
               ),
             ),
-            Icon(icons[weather]),
+            Lottie.asset(
+              LottieHelper.getWeatherLottie(condition: weather, isDay: true),
+              width: context.dp(2.5),
+              height: context.dp(2.5),
+            ),
             Text(
-              "$minTemp°",
+              "$minTemp$unit",
               style: context.textTheme.labelLarge?.copyWith(
                 color: ColorTheme.textSecondary,
               ),
@@ -155,9 +146,10 @@ class _ForecastItem extends StatelessWidget {
               minTemp: minTemp,
               maxTemp: maxTemp,
               currentTemp: currentTemp,
+              width: 100,
             ),
             Text(
-              "$maxTemp°",
+              "$maxTemp$unit",
               style: context.textTheme.labelLarge,
             ),
           ],

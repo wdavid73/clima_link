@@ -1,3 +1,4 @@
+import 'package:clima_link/config/config.dart';
 import 'package:flutter/material.dart';
 
 /// A reusable temperature range bar widget, typically used to visualize
@@ -105,12 +106,15 @@ class TemperatureRangeBar extends StatelessWidget {
             Positioned(
               left: currentPos - 2,
               top: 0,
-              child: Container(
-                width: 4,
-                height: height,
-                decoration: BoxDecoration(
-                  color: currentDotColor,
-                  shape: BoxShape.circle,
+              child: Tooltip(
+                message: "$currentTemp°C",
+                child: Container(
+                  width: 6,
+                  height: height,
+                  decoration: BoxDecoration(
+                    color: currentDotColor,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             ),

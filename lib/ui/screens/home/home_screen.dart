@@ -1,5 +1,6 @@
 import 'package:clima_link/app/dependency_injection.dart';
 import 'package:clima_link/ui/blocs/blocs.dart';
+import 'package:clima_link/ui/cubits/cubits.dart';
 import 'package:clima_link/ui/screens/home/widgets/home_body.dart';
 import 'package:clima_link/ui/widgets/adaptive_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
-      child: BlocProvider(
-        create: (_) => getIt.get<WeatherBloc>()..add(LoadWeatherAuto()),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => getIt.get<WeatherBloc>()
+              ..add(
+                LoadWeatherAuto(),
+              ),
+          ),
+          BlocProvider(create: (_) => getIt.get<SettingsCubit>()),
+        ],
         child: HomeBody(),
       ),
     );

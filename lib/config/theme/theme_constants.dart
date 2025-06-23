@@ -412,6 +412,22 @@ class ThemeConstants {
     position: PopupMenuPosition.over,
   );
 
+  static final baseTooltipThemeData = TooltipThemeData(
+    textStyle: baseTextTheme.bodyLarge,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      color: ColorTheme.navigationBackgroundColorLight,
+    ),
+  );
+
+  static final baseTooltipDarkThemeData = baseTooltipThemeData.copyWith(
+    textStyle: baseTextThemeDark.bodyLarge,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),
+      color: ColorTheme.backgroundColorDark,
+    ),
+  );
+
   /// Resolves a color based on the [WidgetState] of a widget.
   ///
   /// If the widget is in a [WidgetState.selected] state, [selectedColor] is returned.

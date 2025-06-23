@@ -448,5 +448,70 @@ class AppLocalizationsEs extends AppLocalizations {
   String get version => 'Versión';
 
   @override
-  String get tryAgain => 'Try again';
+  String get tryAgain => 'Intentar otra vez';
+
+  @override
+  String get moreDetails => 'Mas detalles';
+
+  @override
+  String get wind => 'Viento';
+
+  @override
+  String get humidity => 'Humedad';
+
+  @override
+  String get thermalSensation => 'Sensación térmica';
+
+  @override
+  String get minimumTemperature => 'Temperatura minima';
+
+  @override
+  String get maximumTemperature => 'Temperatura maxima';
+
+  @override
+  String get precipitation => 'Precipitación';
+
+  @override
+  String get uvIndex => 'Indice UV';
+
+  @override
+  String get visibility => 'Visibilidad';
+
+  @override
+  String get dailyChangeOfRain => 'Probabilidad de lluvia';
+
+  @override
+  String get lastUpdate => 'Ultima actualización';
+
+  @override
+  String get tenDayForecast => '10 Dias de pronósticos';
+
+  @override
+  String get today => 'Hoy';
+
+  @override
+  String get currentLanguage => 'Idioma actual';
+
+  @override
+  String get currentTemperature => 'Temperatura actual';
+
+  @override
+  String get temperatureUnit => 'Unidad de temperatura';
+
+  @override
+  String get windSpeedUnit => 'Unidad velocidad del viento';
+
+  @override
+  String get chooseTemperatureUnit =>
+      'Elije la unidad de temperatura que prefiera';
+
+  @override
+  String get chooseWindUnit =>
+      'Elije la unidad de velocidad del viento que prefiera';
+
+  @override
+  String get dayForecast => 'Day Forecast';
+
+  @override
+  String get daysForecast => 'Dias Pronosticados';
 }
