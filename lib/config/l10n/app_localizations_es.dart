@@ -514,4 +514,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get daysForecast => 'Dias Pronosticados';
+
+  @override
+  String get hourlyForecast => 'Pronostico horario';
+
+  @override
+  String get dailyForecast => 'Pronostico diario';
 }

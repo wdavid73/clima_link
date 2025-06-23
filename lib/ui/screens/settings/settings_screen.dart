@@ -118,13 +118,11 @@ class _ItemSettings extends StatelessWidget {
   final String title;
   final Widget? trailing;
   final String? subtitle;
-  final void Function()? onTap;
   const _ItemSettings({
     required this.icon,
     required this.title,
     this.subtitle,
     this.trailing,
-    this.onTap,
   });
 
   @override
@@ -153,7 +151,6 @@ class _ItemSettings extends StatelessWidget {
                 : null,
             trailing: trailing,
             contentPadding: EdgeInsets.zero,
-            onTap: onTap,
           ),
         ],
       ),

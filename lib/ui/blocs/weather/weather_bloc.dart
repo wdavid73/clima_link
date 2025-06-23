@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clima_link/config/helpers/location_helper.dart';
 import 'package:clima_link/domain/usecases/weather_usecase.dart';
 import 'package:equatable/equatable.dart';
@@ -11,10 +13,15 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final WeatherUsecase useCase;
   WeatherBloc(this.useCase) : super(WeatherState.initial()) {
     on<LoadWeatherAuto>(handlerLoadWeather);
+    on<ChangeForecastTypeEvent>(handlerChangeForecastType);
   }
 
   void loadWeather() {
     add(LoadWeatherAuto());
+  }
+
+  void changeForecastType(ForecastType type) {
+    add(ChangeForecastTypeEvent(type: type));
   }
 
   Future<void> handlerLoadWeather(
@@ -37,5 +44,12 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
     }
+  }
+
+  Future<void> handlerChangeForecastType(
+    ChangeForecastTypeEvent event,
+    Emitter<WeatherState> emit,
+  ) async {
+    log("Forecast Type: ${event.type}");
   }
 }

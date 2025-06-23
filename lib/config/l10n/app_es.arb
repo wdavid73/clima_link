@@ -162,5 +162,7 @@
   "chooseTemperatureUnit": "Elije la unidad de temperatura que prefiera",
   "chooseWindUnit": "Elije la unidad de velocidad del viento que prefiera",
   "dayForecast": "Day Forecast",
-  "daysForecast": "Dias Pronosticados"
+  "daysForecast": "Dias Pronosticados",
+  "hourlyForecast": "Pronostico horario",
+  "dailyForecast": "Pronostico diario"
 }

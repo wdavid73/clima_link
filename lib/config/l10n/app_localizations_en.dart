@@ -501,4 +501,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get daysForecast => 'Days Forecast';
+
+  @override
+  String get hourlyForecast => 'Hourly Forecast';
+
+  @override
+  String get dailyForecast => 'Daily Forecast';
 }

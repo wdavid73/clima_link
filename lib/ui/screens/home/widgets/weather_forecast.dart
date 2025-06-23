@@ -1,5 +1,6 @@
 import 'package:clima_link/config/config.dart';
 import 'package:clima_link/config/helpers/lottie_helper.dart';
+import 'package:clima_link/ui/blocs/weather/weather_bloc.dart';
 import 'package:clima_link/ui/cubits/cubits.dart';
 import 'package:clima_link/ui/shared/styles/app_spacing.dart';
 import 'package:clima_link/ui/widgets/custom_dropdown_form_field.dart';
@@ -25,7 +26,7 @@ class WeatherForecast extends StatelessWidget {
       child: Column(
         spacing: 10,
         children: [
-          _SelectTypeForecast(),
+          // _SelectTypeForecast(),
           Card(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -165,25 +166,29 @@ class _SelectTypeForecast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> options = [
-      "Hourly Forecast",
-      "Daily Forecast",
-      "Monthly Forecast",
-    ];
+    final state = context.watch<WeatherBloc>().state;
+
+    final Map<ForecastType, String> options = {
+      ForecastType.hourly: context.l10n.hourlyForecast,
+      ForecastType.daily: context.l10n.dailyForecast,
+    };
     return SizedBox(
       width: context.width,
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 26),
-        child: CustomDropdownFormField(
+        child: CustomDropdownFormField<ForecastType>(
           prefixIcon: Icon(
             FluentIcons.time_and_weather_24_filled,
             size: context.dp(2),
           ),
-          options: options,
-          onChanged: (val) {},
-          itemBuilder: (option) => DropdownMenuItem(
+          value: state.forecastType,
+          options: ForecastType.values,
+          onChanged: (val) {
+            context.read<WeatherBloc>().changeForecastType(val!);
+          },
+          itemBuilder: (ForecastType option) => DropdownMenuItem(
             value: option,
-            child: Text(option),
+            child: Text("${options[option]}"),
           ),
         ),
       ),

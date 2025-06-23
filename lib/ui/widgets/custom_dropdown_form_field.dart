@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:clima_link/config/config.dart';
 
-class CustomDropdownFormField extends StatelessWidget {
-  final List<dynamic> options;
-  final DropdownMenuItem<dynamic> Function(dynamic value) itemBuilder;
-  final void Function(dynamic)? onChanged;
-  final String? Function(dynamic)? validator;
+class CustomDropdownFormField<T> extends StatelessWidget {
+  final List<T> options;
+  final DropdownMenuItem<T> Function(T value) itemBuilder;
+  final ValueChanged<T?>? onChanged;
+  final FormFieldValidator<T>? validator;
 
   final BoxDecoration? decoration;
   final Icon? icon;
@@ -19,6 +19,8 @@ class CustomDropdownFormField extends StatelessWidget {
 
   final String hint;
   final String hintDisable;
+
+  final dynamic value;
 
   const CustomDropdownFormField({
     super.key,
@@ -37,13 +39,15 @@ class CustomDropdownFormField extends StatelessWidget {
     this.label,
     this.hint = 'select_an_option',
     this.hintDisable = 'select_an_option_disabled',
+    this.value,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: decoration,
-      child: DropdownButtonFormField<dynamic>(
+      child: DropdownButtonFormField<T>(
+        value: value,
         items: options.map((value) => itemBuilder(value)).toList(),
         decoration: InputDecoration(
           labelText: label,

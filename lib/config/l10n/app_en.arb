@@ -292,5 +292,7 @@
   "chooseTemperatureUnit": "Choose your preferred temperature unit",
   "chooseWindUnit": "Choose your preferred wind speed unit",
   "dayForecast": "Day Forecast",
-  "daysForecast": "Days Forecast"
+  "daysForecast": "Days Forecast",
+  "hourlyForecast": "Hourly Forecast",
+  "dailyForecast": "Daily Forecast"
 }

@@ -1027,6 +1027,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Days Forecast'**
   String get daysForecast;
+
+  /// No description provided for @hourlyForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly Forecast'**
+  String get hourlyForecast;
+
+  /// No description provided for @dailyForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Forecast'**
+  String get dailyForecast;
 }
 
 class _AppLocalizationsDelegate
